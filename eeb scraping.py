@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time, requests
 import pandas as pd, matplotlib.pyplot as plt, numpy as np
+import statsmodels.api as sm
 
 
 # --- Web Scraping ------
@@ -18,10 +19,12 @@ loginBtn.click()
 time.sleep(2)
 scooby = 'https://www.kaggle.com/datasets/williamschooleman/scoobydoo-complete'
 browser.get(scooby)
-#TODO : INSERT SCROLL HERE
+get_here = browser.find_element(By.CSS_SELECTOR, '.sc-gVCVku.dAnUcv')
+time.sleep(1)
+browser.execute_script("arguments[0].scrollIntoView();", get_here)
+time.sleep(2)
 dwnldBtn = browser.find_element(By.CSS_SELECTOR, '.rmwc-icon.rmwc-icon--ligature.google-material-icons.sc-BKAtq.fmysTT')
-dwnldBtn.click() #ONLY WORKS IF DOWNLOAD BUTTON IS ON SCREEN... SCROLL??
-
+dwnldBtn.click()
 time.sleep(3)
 
 # Plotting ----------------------
