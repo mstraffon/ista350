@@ -52,3 +52,12 @@ plt.ylabel("Number of Scooby Snacks Given",fontsize=16)
 plt.title("Which Scooby Doo Character Gave the Most Scooby Snacks?",fontsize=14)
 plt.show()
 
+#image4
+df=pd.read_csv('Scooby-Doo Complete - Episode List - Update 10 19 21.csv',usecols=['engagement','run.time'],nrows=200)
+#make scatterplot
+plt.scatter('engagement', 'run.time', data=df, marker='o',color='darkorchid',edgecolors='black')
+plt.xlabel('Engagement',fontsize=16)
+plt.ylabel("Runtime",fontsize=16)
+plt.title("Runtime VS Engagement",fontsize=14)
+plt.show()
+
